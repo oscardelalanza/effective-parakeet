@@ -33,32 +33,15 @@ const App = () => {
   return (
     <form onSubmit={formik.handleSubmit}>
       <label>Name</label>
-      <input name="name"
-             type="text"
-             onChange={formik.handleChange}
-             value={formik.values.name}
-             onBlur={formik.handleBlur}
-      />
+      <input type="text" {...formik.getFieldProps('name')} />
       {formik.touched.name && formik.errors.name ? <div>{formik.errors.name}</div> : null}
       <br/>
       <label>Last Name</label>
-      <input
-        name="lastName"
-        type="text"
-        onChange={formik.handleChange}
-        value={formik.values.lastName}
-        onBlur={formik.handleBlur}
-      />
+      <input type="text" {...formik.getFieldProps('lastName')} />
       {formik.touched.lastName && formik.errors.lastName ? <div>{formik.errors.lastName}</div> : null}
       <br/>
       <label>Email</label>
-      <input
-        name="email"
-        type="email"
-        onChange={formik.handleChange}
-        value={formik.values.email}
-        onBlur={formik.handleBlur}
-      />
+      <input type="email" {...formik.getFieldProps('email')} />
       {formik.touched.email && formik.errors.email ? <div>{formik.errors.email}</div> : null}
       <button type="submit">Sent</button>
     </form>
